@@ -1,1 +1,21 @@
+import numpy as np
+
+# Parámetros
+lambda_llegada = 1 / 15  # tasa de llegadas por minuto
+total_minutos = 12 * 60  # 12 horas convertidas a minutos
+
+# Generar los tiempos entre llegadas usando la transformada inversa
+tiempos_llegada = []
+tiempo_acumulado = 0
+
+while tiempo_acumulado < total_minutos:
+    U = np.random.rand()  # número aleatorio entre 0 y 1
+    tiempo_entre_llegada = -np.log(1 - U) / lambda_llegada
+    tiempo_acumulado += tiempo_entre_llegada
+    if tiempo_acumulado < total_minutos:
+        tiempos_llegada.append(tiempo_entre_llegada)
+
+# Resultados
+print("Tiempos entre llegadas (en minutos):", tiempos_llegada)
+print("Número total de llegadas en 12 horas:", len(tiempos_llegada))
 

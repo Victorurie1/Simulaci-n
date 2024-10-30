@@ -1,1 +1,17 @@
+import numpy as np
+
+# Parámetros de la distribución lognormal
+mu = 10  # tiempo promedio de espera en minutos
+sigma = 2  # desviación estándar en minutos
+n_clientes = 50  # número de clientes
+
+# Convertimos los parámetros mu y sigma para la lognormal (en términos logarítmicos)
+log_mu = np.log(mu**2 / np.sqrt(mu**2 + sigma**2))
+log_sigma = np.sqrt(np.log(1 + (sigma**2 / mu**2)))
+
+# Generamos los tiempos de espera para 50 clientes usando la transformada inversa para una distribución lognormal
+esperas = np.exp(log_mu + log_sigma * np.random.standard_normal(n_clientes))
+
+# Mostramos los resultados
+print(esperas)
 

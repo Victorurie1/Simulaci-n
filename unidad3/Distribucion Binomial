@@ -1,1 +1,11 @@
+import numpy as np
+
+# Parámetros del problema
+p_exito = 0.7       # Probabilidad de éxito (cumplir un pedido)
+n_pedidos = 20      # Número de pedidos diarios
+dias_semana = 7     # Días en una semana
+
+# Simulación de pedidos satisfechos por día durante una semana
+pedidos_satisfechos_semana = np.random.binomial(n_pedidos, p_exito, dias_semana)
+pedidos_satisfechos_semana
 

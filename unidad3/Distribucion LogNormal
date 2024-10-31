@@ -13,5 +13,6 @@ log_sigma = np.sqrt(np.log(1 + (sigma**2 / mu**2)))
 esperas = np.exp(log_mu + log_sigma * np.random.standard_normal(n_clientes))
 
 # Mostramos los resultados
-print(esperas)
+for i, tiempo in enumerate(esperas, start=1):
+    print(f"Cliente {i}: {tiempo:.2f} minutos")
 
